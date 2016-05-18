@@ -1,0 +1,42 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/tiy-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<center>
+<div id="logo-div">
+    <img src="https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg"/>
+</div>
+    </center>
+
+<form action="/searchByName" method="get">
+    <input type="text" placeholder="Search" name="search"/>
+    <button type="submit">Search</button>
+</form>
+
+<br><br>
+
+<form action="/add-todo" method="post">
+    <input type="text" placeholder="Enter text" name="todoName"/>
+
+    <button type="submit">Add</button>
+</form>
+
+<center>
+<ol>
+    {{#todos}}
+    <li>{{text}}
+        {{#is_done}}
+        (Done!)
+        {{/is_done}}
+        {{^is_done}}
+
+        {{/is_done}}
+        <a href="/delete?toDoID={{id}}">delete</a> <a href="/modify?toDoID={{id}}">toggle</a>
+    </li>
+    {{/todos}}
+</ol>
+</center>
+
+</body>
+</html>
